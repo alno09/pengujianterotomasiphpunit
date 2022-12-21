@@ -26,3 +26,6 @@ Route::get('/dashboard', function () {
 Route::get('/peminjaman', [PeminjamanController::class, 'userShow']);
 Route::get('/peminjaman/mohon', [PeminjamanController::class, 'userMohon']);
 Route::get('/peminjaman/simpan', [PeminjamanController::class, 'userSimpan']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
