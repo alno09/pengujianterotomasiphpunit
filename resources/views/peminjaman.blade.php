@@ -1,29 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>SIRuang DeWe</title>
+<title>SIRuang DeWe</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('template/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="{{asset('template/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+<link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body id="page-top">
-
+  <body>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -275,154 +276,44 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Permohonan Peminjaman</h1>
                     </div>
+  <table border="1" class="table container">
+    <a href="/peminjaman/mohon" role="button">Ajukan Permohonan [+]</a>
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nama Ruangan</th>
+            <th scope="col">Tanggal Peminjaman</th>
+            <th scope="col">Nama Peminjam</th>
+            <th scope="col">Keresmian</th>
+            <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php $no=1; @endphp
+            @foreach($pinjam as $p)
+            <tr>
+            <th scope="row">{{ $no++ }}</th>
+            <td>{{$p -> nama_ruang}}</td>
+            <td>{{$p -> tgl_pinjam}}</td>
+            <td>{{$p -> nama_peminjam}}</td>
+            <td>{{$p -> keresmian}}</td>
+            <td>setuju/tidak</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
-                    <!-- Content Row -->
-                    <div class="row">
+    <!-- Optional JavaScript; choose one of the two! -->
 
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-5 col-md-15 mb-7">
-                    <div class="card border-left-primary shadow h-100 py-4 ">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-4">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-2">
-                                        Ruang Seminar Harun</div>
-                                        <img src="{{asset('template/img/rg_harun.jpg')}}" alt="" width="325px" height="100px">
-                                </div>
-                            </div>
-                            <div class="btn-group">
-                                    <button href="/detil" class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
-                                </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-                <div class="col-xl-5 col-md-15 mb-7">
-                    <div class="card border-left-info shadow h-100 py-4">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                            <div class="col mr-4">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-2">
-                                        Ruang Seminar Rudi Budiman</div>
-                                        <img src="{{asset('template/img/rg_rudbud.jpg')}}" alt="" width="325px" height="100px">
-                                </div>
-                                <div class="btn-group">
-                                    <button class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-5 col-md-15 mb-7 mt-4">
-                    <div class="card border-left-warning shadow h-100 py-4">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                            <div class="col mr-4">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-2">
-                                        Ruang Seminar Didaktos</div>
-                                        <img src="{{asset('template/img/rg_didaktos.jpg')}}" alt="" width="325px" height="100px">
-                                </div>
-                                <div class="btn-group">
-                                    <button class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-5 col-md-15 mb-7 mt-4">
-                    <div class="card border-left-success shadow h-100 py-4">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                            <div class="col mr-4">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-2">
-                                        Ruang Seminar Takdis</div>
-                                        <img src="{{asset('template/img/rg_tasdik.jpg')}}" alt="" width="325px" height="100px">
-                                </div>
-                                <div class="btn-group">
-                                    <button class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>SIRuang DeWe</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('template/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('template/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-
-</body>
-
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
 </html>
