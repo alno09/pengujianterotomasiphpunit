@@ -16,16 +16,23 @@ use App\Http\Controllers\peminjaman;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-
+Route::get('/kontak_admin', function () {
+    return view('kontak_admin');
+});
 Route::get('/peminjaman', [PeminjamanController::class, 'userShow']);
 Route::get('/peminjaman/mohon', [PeminjamanController::class, 'userMohon']);
-Route::get('/peminjaman/simpan', [PeminjamanController::class, 'userSimpan']);
-Auth::routes();
+Route::post('/peminjaman/simpan', [PeminjamanController::class, 'userSimpan']);
+Route::delete('/peminjaman/delete/{id_pinjam}', [PeminjamanController::class, 'userBatalkan'])->name('peminjaman.destroy');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/peminjamanadmin', [PeminjamanController::class, 'adminShow']);

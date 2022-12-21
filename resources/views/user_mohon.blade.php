@@ -250,18 +250,18 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{asset('template/img/undraw_profile.svg')}}">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="btn btn-link" type="submit">Logout</button>
+                                    </form>
                                 </a>
                             </div>
                         </li>
@@ -278,30 +278,43 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Ajukan Permohonan</h1>
                     </div>
-                    <form>
+                    <form method="post" action="/peminjaman/simpan">
+                    @csrf
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nama Ruangan</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1">
+                        <label for="exampleFormControlSelect1">Ruangan</label>
+                            <select class="form-control" name="nama_ruang" id="nama_ruang">
+                            <option value="Rudi Budiman">Rudi Budiman</option>
+                            <option value="Didaktos">Didaktos</option>
+                            <option value="Tasdik">Tasdik</option>
+                            <option value="Harun">Harun</option>
+                            </select>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Skala Acara</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1">
+                            <label for="exampleFormControlSelect1">Skala Acara</label>
+                                <select class="form-control" name="tingkat" id="keresmian">
+                                <option value="Fakultas">Fakultas</option>
+                                <option value="Lembaga Kemahasiswaan">Lembaga Kemahasiswaan</option>
+                                <option value="Organisasi">Organisasi</option>
+                                </select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Tanggal Peminjaman</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1">
+                            <input type="date" name="tgl_pinjam" class="form-control" id="exampleInputEmail1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Waktu Peminjaman</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1">
+                            <input type="time" name="jam_peminjaman" class="form-control" id="exampleInputEmail1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Keresmian</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1">
+                            <label for="exampleFormControlSelect1">Keresmian</label>
+                                <select class="form-control" name="keresmian" id="keresmian">
+                                <option value="Resmi">Resmi</option>
+                                <option value="Tidak Resmi">Tidak Resmi</option>
+                                </select>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Deskripsi Acara</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1">
+                            <label for="exampleInputEmail1" class="form-label">Keterangan Acara</label>
+                            <input type="text" name="deskripsi_pinjam" class="form-control" id="exampleInputEmail1">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

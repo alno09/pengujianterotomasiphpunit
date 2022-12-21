@@ -250,18 +250,18 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{asset('template/img/undraw_profile.svg')}}">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="btn btn-link" type="submit">Logout</button>
+                                    </form>
                                 </a>
                             </div>
                         </li>
@@ -285,7 +285,7 @@
             <th scope="col">#</th>
             <th scope="col">Nama Ruangan</th>
             <th scope="col">Tanggal Peminjaman</th>
-            <th scope="col">Nama Peminjam</th>
+            <th scope="col">Jam Peminjaman</th>
             <th scope="col">Keresmian</th>
             <th scope="col">Status</th>
             </tr>
@@ -297,9 +297,15 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{$p -> nama_ruang}}</td>
             <td>{{$p -> tgl_pinjam}}</td>
-            <td>{{$p -> nama_peminjam}}</td>
+            <td>{{$p -> jam_peminjaman}}</td>
             <td>{{$p -> keresmian}}</td>
-            <td>setuju/tidak</td>
+            <td>
+            <form action="{{ route('peminjaman.destroy',$p->id_pinjam) }}" method="POST">
+                @csrf
+                @method('delete')
+                <input type="submit" value="Batalkan" class="btn-danger">
+            </form>
+            </td>
             </tr>
             @endforeach
         </tbody>

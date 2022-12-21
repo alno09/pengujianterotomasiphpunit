@@ -17,6 +17,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+    
+<img src="{{asset('template/img/logo-ukdw-2.png')}}" alt="" width="500px" height="100px">
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
