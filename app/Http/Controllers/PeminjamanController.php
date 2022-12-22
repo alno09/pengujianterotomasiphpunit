@@ -36,8 +36,29 @@ class PeminjamanController extends Controller
         return redirect ('peminjaman');
     }
 
+    public function userSurat($id_pinjam) {
+        return view ('peminjaman_surat_pdf');
+    }
+
     public function adminShow () {
         $pinjam = Peminjaman::all();
-        return view ('peminjaman', ['pinjam' => $pinjam]);
+        return view ('peminjaman-admin', ['pinjam' => $pinjam]);
+    }
+
+    public function adminApprove ($id_pinjam, Request $Request) {
+        $pinjam = Peminjaman::find( $id_pinjam);
+        $pinjam->status = $Request->status;
+        $pinjam->save();
+        if ($pinjam->status == "Ditolak") {
+            $pinjam->delete();
+        } elseif ($pinjam->status == "Disetujui") {
+            $pinjam->save();
+        }
+        return redirect ('/peminjaman/admin');
+    }
+
+    public function adminDetil($id_pinjam) {
+        $pinjam =Peminjaman::find($id_pinjam);
+        return view ('surat_peminjaman_pdf', ['nama_ruang' => $pinjam->nama_ruang]);
     }
 }

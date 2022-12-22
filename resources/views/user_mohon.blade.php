@@ -61,7 +61,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="/peminjaman">
                     <i class="fas fa-fw fa-inbox"></i>
-                    <span>Peminjaman</span>
+                    <?php
+                        if (Auth::user()->authority == "admin") {
+                            echo "<span>Permohonan</span>";
+                        } else {
+                            echo "<span>Peminjaman</span>";
+                        }
+                    ?>
                 </a>
             </li>
 

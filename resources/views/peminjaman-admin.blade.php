@@ -292,7 +292,7 @@
                         <h1 class="h3 mb-0 text-gray-800">Permohonan Peminjaman</h1>
                     </div>
   <table border="1" class="table container">
-    <a href="/peminjaman/mohon" role="button">Ajukan Permohonan [+]</a>
+    <a href="/peminjaman/mohon/admin" role="button">Ajukan Permohonan [+]</a>
         <thead>
             <tr>
             <th scope="col">#</th>
@@ -300,6 +300,7 @@
             <th scope="col">Tanggal Peminjaman</th>
             <th scope="col">Jam Peminjaman</th>
             <th scope="col">Keresmian</th>
+            <th scope="col">Detil</th>
             <th scope="col">Status</th>
             </tr>
         </thead>
@@ -312,17 +313,19 @@
             <td>{{$p -> tgl_pinjam}}</td>
             <td>{{$p -> jam_peminjaman}}</td>
             <td>{{$p -> keresmian}}</td>
+            <td><a href="/peminjaman/surat/{$id_pinjam}" class="btn btn-primary">Permohonan</a></td>
             <td>
-                <?php
-                 if ($p->status == "Disetujui") { ?>
-                    <a href="/peminjaman/surat/{$p->id_pinjam}" class="btn btn-primary">Print Surat</a>
-                <?php } else { ?>
-                    <form action="{{ route('peminjaman.destroy',$p->id_pinjam) }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" value="Batalkan" class="btn-danger">
-                    </form>
-                <?php }
+                <?php 
+                    if ($p->status == "Disetujui") {
+                        echo "Disetujui";
+                    } else { ?>
+                        <form action="{{ route('peminjaman.update',$p->id_pinjam) }}" method="POST">
+                            @csrf
+                            @method('put')
+                            <input type="submit" name="status" value="Ditolak" class="btn-secondary">
+                            <input type="submit" name="status" value="Disetujui" class="btn-success">
+                        </form>
+                   <?php }
                 ?>
             </td>
             </tr>

@@ -58,9 +58,22 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/peminjaman">
+                <a class="nav-link"
+                <?php 
+                    if (Auth::user()->authority == "admin") {
+                        echo "<a href=\"/peminjaman/admin\"";
+                    } else {
+                        echo "<a href=\"/peminjaman\"";
+                    }
+                 ?>>
                     <i class="fas fa-fw fa-inbox"></i>
-                    <span>Peminjaman</span>
+                    <?php
+                        if (Auth::user()->authority == "admin") {
+                            echo "<span>Permohonan</span>";
+                        } else {
+                            echo "<span>Peminjaman</span>";
+                        }
+                    ?>
                 </a>
             </li>
 
@@ -292,10 +305,31 @@
                                         <img src="{{asset('template/img/rg_harun.jpg')}}" alt="" width="325px" height="100px">
                                 </div>
                             </div>
-                            <div class="btn-group">
-                                    <button href="/detil" class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Detil Ruangan
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Detil Ruangan Harun</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 class="font-weight-bold">Kapasitas</h5>
+                                        <p>120 orang</p>
+                                        <hr>
+                                        <h5 class="font-weight-bold">Fasilitas</h5>
+                                        <p>AC</p>
+                                        <p>Proyektor</p>
+                                    </div>
+                                    </div>
+                                </div>
                                 </div>
                         </div>
                     </div>
@@ -310,10 +344,31 @@
                                         Ruang Seminar Rudi Budiman</div>
                                         <img src="{{asset('template/img/rg_rudbud.jpg')}}" alt="" width="325px" height="100px">
                                 </div>
-                                <div class="btn-group">
-                                    <button class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Detil Ruangan
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Detil Ruangan Rudi Budiman</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 class="font-weight-bold">Kapasitas</h5>
+                                        <p>120 orang</p>
+                                        <hr>
+                                        <h5 class="font-weight-bold">Fasilitas</h5>
+                                        <p>AC</p>
+                                        <p>Proyektor</p>
+                                    </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -329,10 +384,31 @@
                                         Ruang Seminar Didaktos</div>
                                         <img src="{{asset('template/img/rg_didaktos.jpg')}}" alt="" width="325px" height="100px">
                                 </div>
-                                <div class="btn-group">
-                                    <button class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Detil Ruangan
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Detil Ruangan Didaktos</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 class="font-weight-bold">Kapasitas</h5>
+                                        <p>120 orang</p>
+                                        <hr>
+                                        <h5 class="font-weight-bold">Fasilitas</h5>
+                                        <p>AC</p>
+                                        <p>Proyektor</p>
+                                    </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -348,10 +424,31 @@
                                         Ruang Seminar Takdis</div>
                                         <img src="{{asset('template/img/rg_tasdik.jpg')}}" alt="" width="325px" height="100px">
                                 </div>
-                                <div class="btn-group">
-                                    <button class="btn-primary" width="10" height="10">
-                                        Detil Ruangan
-                                    </button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Detil Ruangan
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Detil Ruangan Takdis</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 class="font-weight-bold">Kapasitas</h5>
+                                        <p>120 orang</p>
+                                        <hr>
+                                        <h5 class="font-weight-bold">Fasilitas</h5>
+                                        <p>AC</p>
+                                        <p>Proyektor</p>
+                                    </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>

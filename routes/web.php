@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//User
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
@@ -33,6 +35,9 @@ Route::get('/peminjaman', [PeminjamanController::class, 'userShow']);
 Route::get('/peminjaman/mohon', [PeminjamanController::class, 'userMohon']);
 Route::post('/peminjaman/simpan', [PeminjamanController::class, 'userSimpan']);
 Route::delete('/peminjaman/delete/{id_pinjam}', [PeminjamanController::class, 'userBatalkan'])->name('peminjaman.destroy');
+Route::get('/peminjaman/surat', [PeminjamanController::class, 'adminDetil']);
 
+//Admin
 
-Route::get('/peminjamanadmin', [PeminjamanController::class, 'adminShow']);
+Route::get('/peminjaman/admin', [PeminjamanController::class, 'adminShow']);
+Route::put('/peminjaman/approve/admin/{id_pinjam}', [PeminjamanController::class, 'adminApprove'])->name('peminjaman.update');
