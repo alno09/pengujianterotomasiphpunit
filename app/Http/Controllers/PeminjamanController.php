@@ -13,6 +13,11 @@ class PeminjamanController extends Controller
         return view ('peminjaman', ['pinjam' => $pinjam]);
     }
 
+    public function userDaftarRuang () {
+        $pinjam = Peminjaman::where('status', 'LIKE', 'disetujui')->get();
+        return  view ('user-daftar-ruang', ['pinjam' => $pinjam]);
+    }
+
     public function userMohon () {
         return view ('user_mohon');
     }
@@ -22,9 +27,10 @@ class PeminjamanController extends Controller
             'id_user' => Auth::user()->id,
             'nama_ruang' => $Request->nama_ruang,
             'tgl_pinjam' => $Request->tgl_pinjam,
-            'jam_peminjaman' => $Request->jam_peminjaman,
-            'keresmian' => $Request->keresmian,
+            'jam_mulaipinjam' => $Request->jam_mulaipinjam,
+            'jam_selesaipinjam' => $Request->jam_selesaipinjam,
             'tingkat' => $Request->tingkat,
+            'surat_kt' => $Request->surat_kt,
             'nama_peminjam' => Auth::user()->name,
             'deskripsi_pinjam' => $Request->deskripsi_pinjam,
         ]);

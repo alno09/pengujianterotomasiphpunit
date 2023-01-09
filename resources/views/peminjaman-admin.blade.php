@@ -79,10 +79,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-question"></i>
-                    <span>Kontak Admin</span>
-                </a>
+               
             </li>
         </ul>
         <!-- End of Sidebar -->
@@ -292,14 +289,18 @@
                         <h1 class="h3 mb-0 text-gray-800">Permohonan Peminjaman</h1>
                     </div>
   <table border="1" class="table container">
-    <a href="/peminjaman/mohon/admin" role="button">Ajukan Permohonan [+]</a>
+
+
+
+
+
+
         <thead>
             <tr>
             <th scope="col">#</th>
             <th scope="col">Nama Ruangan</th>
             <th scope="col">Tanggal Peminjaman</th>
-            <th scope="col">Jam Peminjaman</th>
-            <th scope="col">Keresmian</th>
+            <th scope="col">Surat Keterangan</th>
             <th scope="col">Detil</th>
             <th scope="col">Status</th>
             </tr>
@@ -311,9 +312,8 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{$p -> nama_ruang}}</td>
             <td>{{$p -> tgl_pinjam}}</td>
-            <td>{{$p -> jam_peminjaman}}</td>
-            <td>{{$p -> keresmian}}</td>
-            <td><a href="/peminjaman/surat/{$id_pinjam}" class="btn btn-primary">Permohonan</a></td>
+            <td>{{$p -> surat_kt}}</td>
+            <td><a href="/peminjaman/surat/{$id_pinjam}" class="btn btn-primary">Detil Permohonan</a></td>
             <td>
                 <?php 
                     if ($p->status == "Disetujui") {

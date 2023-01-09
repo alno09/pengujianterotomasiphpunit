@@ -79,7 +79,14 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/peminjaman/daftarrg">
+                    <i class="fa fa-calendar"></i>
+                    <span>Riwayat Peminjaman</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/kontak_admin">
                     <i class="fas fa-fw fa-question"></i>
                     <span>Kontak Admin</span>
                 </a>
@@ -292,14 +299,18 @@
                         <h1 class="h3 mb-0 text-gray-800">Permohonan Peminjaman</h1>
                     </div>
   <table border="1" class="table container">
-    <a href="/peminjaman/mohon" role="button">Ajukan Permohonan [+]</a>
+    <button type="button" class="btn btn-primary"> 
+  <a href="/peminjaman/mohon" style="color:inherit"> Ajukan Permohonan </a>
+</button>
+
+
         <thead>
             <tr>
             <th scope="col">#</th>
             <th scope="col">Nama Ruangan</th>
             <th scope="col">Tanggal Peminjaman</th>
-            <th scope="col">Jam Peminjaman</th>
-            <th scope="col">Keresmian</th>
+            <th scope="col">Mulai Pinjam</th>
+            <th scope="col">Selesai Pinjam</th>
             <th scope="col">Status</th>
             </tr>
         </thead>
@@ -310,8 +321,8 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{$p -> nama_ruang}}</td>
             <td>{{$p -> tgl_pinjam}}</td>
-            <td>{{$p -> jam_peminjaman}}</td>
-            <td>{{$p -> keresmian}}</td>
+            <td>{{$p -> jam_mulaipinjam}}</td>
+            <td>{{$p -> jam_selesaipinjam}}</td>
             <td>
                 <?php
                  if ($p->status == "Disetujui") { ?>

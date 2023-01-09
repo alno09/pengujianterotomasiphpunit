@@ -32,6 +32,7 @@ Route::get('/kontak_admin', function () {
     return view('kontak_admin');
 });
 Route::get('/peminjaman', [PeminjamanController::class, 'userShow']);
+Route::get('/peminjaman/daftarrg', [PeminjamanController::class, 'userDaftarRuang']);
 Route::get('/peminjaman/mohon', [PeminjamanController::class, 'userMohon']);
 Route::post('/peminjaman/simpan', [PeminjamanController::class, 'userSimpan']);
 Route::delete('/peminjaman/delete/{id_pinjam}', [PeminjamanController::class, 'userBatalkan'])->name('peminjaman.destroy');

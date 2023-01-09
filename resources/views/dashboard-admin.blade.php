@@ -64,12 +64,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="href=">
-                    <i class="fas fa-fw fa-question"></i>
-                    <span>Kontak Admin</span>
-                </a>
-            </li>
+            
         </ul>
         <!-- End of Sidebar -->
 

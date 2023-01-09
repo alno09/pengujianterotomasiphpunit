@@ -72,6 +72,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="/peminjaman/daftarrg">
+                    <i class="fa fa-calendar"></i>
+                    <span>Riwayat Peminjaman</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-question"></i>
                     <span>Kontak Admin</span>
@@ -299,8 +306,8 @@
                             <label for="exampleFormControlSelect1">Skala Acara</label>
                                 <select class="form-control" name="tingkat" id="keresmian">
                                 <option value="Fakultas">Fakultas</option>
+                                <option value="Rektorat">Rektorat</option>
                                 <option value="Lembaga Kemahasiswaan">Lembaga Kemahasiswaan</option>
-                                <option value="Organisasi">Organisasi</option>
                                 </select>
                         </div>
                         <div class="mb-3">
@@ -308,19 +315,20 @@
                             <input type="date" name="tgl_pinjam" class="form-control" id="exampleInputEmail1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Waktu Peminjaman</label>
-                            <input type="time" name="jam_peminjaman" class="form-control" id="exampleInputEmail1">
+                            <label for="exampleInputEmail1" class="form-label">Jam Mulai Peminjaman</label>
+                            <input type="time" name="jam_mulaipinjam" class="form-control" id="exampleInputEmail1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlSelect1">Keresmian</label>
-                                <select class="form-control" name="keresmian" id="keresmian">
-                                <option value="Resmi">Resmi</option>
-                                <option value="Tidak Resmi">Tidak Resmi</option>
-                                </select>
+                            <label for="exampleInputEmail1" class="form-label">Jam Selesai Peminjaman</label>
+                            <input type="time" name="jam_selesaipinjam" class="form-control" id="exampleInputEmail1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Keterangan Acara</label>
                             <input type="text" name="deskripsi_pinjam" class="form-control" id="exampleInputEmail1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Surat Keterangan</label>
+                            <input type="file" name="surat_kt" class="form-control" id="exampleInputEmail1" accept=".pdf">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
