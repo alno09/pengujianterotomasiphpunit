@@ -42,3 +42,4 @@ Route::get('/peminjaman/surat', [PeminjamanController::class, 'adminDetil']);
 
 Route::get('/peminjaman/admin', [PeminjamanController::class, 'adminShow']);
 Route::put('/peminjaman/approve/admin/{id_pinjam}', [PeminjamanController::class, 'adminApprove'])->name('peminjaman.update');
+Route::get('/peminjaman/admin/template/{id_pinjam}', [PeminjamanController::class, 'adminTemplate']);

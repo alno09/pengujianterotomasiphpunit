@@ -1,0 +1,16 @@
+selamat siang bu, kak beberapa langkah yang mesti dilakukan sebelum menjalankan program
+
+1. imporkan database ke phpmyadmin (db_sql)
+karena jika menggunakan migrate isi db akan berbeda.
+
+2.beberapa langkah yang mesti dilakukan :
+- mengubah file env.txt -> file env laravel (.env)
+- copykan command ini diterminal :
+  ~ composer install 
+  ~ php artisan cache:clear 
+  ~ composer dump-autoload 
+- lalu jalankan perintah :
+  ~ composer update
+  ~ composer i
+
+Terima Kasih =)

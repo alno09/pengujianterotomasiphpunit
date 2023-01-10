@@ -326,7 +326,7 @@
             <td>
                 <?php
                  if ($p->status == "Disetujui") { ?>
-                    <a href="/peminjaman/surat/{$p->id_pinjam}" class="btn btn-primary">Print Surat</a>
+                    Disetujui
                 <?php } else { ?>
                     <form action="{{ route('peminjaman.destroy',$p->id_pinjam) }}" method="POST">
                         @csrf

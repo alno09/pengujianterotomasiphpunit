@@ -58,16 +58,22 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="/peminjaman">
+                <a class="nav-link"
+                <?php 
+                    if (Auth::user()->authority == "admin") {
+                        echo "<a href=\"/peminjaman/admin\"";
+                    } else {
+                        echo "<a href=\"/peminjaman\"";
+                    }
+                 ?>>
                     <i class="fas fa-fw fa-inbox"></i>
-                    <span>Peminjaman</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="/peminjaman/daftarrg">
-                    <i class="fa fa-calendar"></i>
-                    <span>Riwayat Peminjaman</span>
+                    <?php
+                        if (Auth::user()->authority == "admin") {
+                            echo "<span>Permohonan</span>";
+                        } else {
+                            echo "<span>Peminjaman</span>";
+                        }
+                    ?>
                 </a>
             </li>
 

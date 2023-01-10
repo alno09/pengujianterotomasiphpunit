@@ -313,7 +313,7 @@
             <td>{{$p -> nama_ruang}}</td>
             <td>{{$p -> tgl_pinjam}}</td>
             <td>{{$p -> surat_kt}}</td>
-            <td><a href="/peminjaman/surat/{$id_pinjam}" class="btn btn-primary">Detil Permohonan</a></td>
+            <td><a href="/peminjaman/admin/template/{{$p->id_pinjam}}" class="btn btn-primary">Detil Permohonan</a></td>
             <td>
                 <?php 
                     if ($p->status == "Disetujui") {

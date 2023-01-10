@@ -33,6 +33,7 @@ class PeminjamanController extends Controller
             'surat_kt' => $Request->surat_kt,
             'nama_peminjam' => Auth::user()->name,
             'deskripsi_pinjam' => $Request->deskripsi_pinjam,
+            'email_peminjam' => Auth::user()->email
         ]);
         return redirect ('peminjaman');
     }
@@ -61,6 +62,18 @@ class PeminjamanController extends Controller
             $pinjam->save();
         }
         return redirect ('/peminjaman/admin');
+    }
+
+    public function adminTemplate($id_pinjam) {
+        $pinjam = Peminjaman::find($id_pinjam);
+        return view ('surat_peminjaman_pdf', ['nama_ruang' => $pinjam->nama_ruang,
+            'tgl_pinjam' => $pinjam->tgl_pinjam,
+            'jam_mulaipinjam' => $pinjam->jam_mulaipinjam,
+            'jam_selesaipinjam' => $pinjam->jam_selesaipinjam,
+            'tingkat' => $pinjam->tingkat,
+            'deskripsi_pinjam' => $pinjam->deskripsi_pinjam,
+            'email' => $pinjam->email_peminjam
+        ]);
     }
 
     public function adminDetil($id_pinjam) {

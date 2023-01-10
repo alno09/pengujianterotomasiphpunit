@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div id=halaman>
+    <div id=halaman class="container-fluid">
         <h3 id=judul>Permohonan Peminjaman Ruangan</h3>
 
         <p>Saya yang bertanda tangan di bawah ini :</p>
@@ -42,32 +42,33 @@
             <tr>
                 <td style="width: 30%;">Tanggal Pinjam</td>
                 <td style="width: 5%;">:</td>
-                
+                <td>{{ $tgl_pinjam }}</td>
+            </tr>
+            <tr>
+                <td style="width: 30%;">Jam Mulai Pinjam</td>
+                <td style="width: 5%;">:</td>
+                <td>{{ $jam_mulaipinjam }}</td>
             </tr>
             <tr>
                 <td style="width: 30%;">Jam Pinjam</td>
                 <td style="width: 5%;">:</td>
-
+                <td>{{ $jam_selesaipinjam }}</td>
             </tr>
             <tr>
-                <td style="width: 30%;">Tingkat</td>
+                <td style="width: 30%;">Skala Acara</td>
                 <td style="width: 5%;">:</td>
-
+                <td>{{ $tingkat }}</td>
             </tr>
             <tr>
                 <td style="width: 30%;">Email</td>
                 <td style="width: 5%;">:</td>
-            </tr>
-            <tr>
-                <td style="width: 30%;">Acara</td>
-                <td style="width: 5%;">:</td>
-
+                <td>{{ $email }}</td>
             </tr>
             <tr>
 
                 <td style="width: 30%;">Deskripsi Acara</td>
                 <td style="width: 5%;">:</td>
-
+                <td>{{ $deskripsi_pinjam }}</td>
             </tr>
         </table>
 
